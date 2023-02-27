@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saberio-rewind"
+version = "1.0.2"
+authors = [
+  { name="Moris Doratiotto", email="moris.doratiotto@gmail.com" },
+  { name="Felicia Wen", email="i@feli.cf"},
+]
+description = "Python script to download custom song from BSaber and add bookmark to it. "
+readme = "README.md"
+dependencies = [
+        "beautifulsoup4 == 4.11.1",
+        "colorifix == 2.0.4",
+        "pymortafix == 0.2.2",
+        "halo == 0.0.31",
+        "tabulate == 0.8.10",
+        "wcwidth == 0.2.6",
+        "spotipy == 2.22.1",
+        ]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+]
+keywords = ["beat saber", "bsaber", "beat saver", "spotify"]
+
+[project.urls]
+"Homepage" = "https://github.com/wmyfelix/PySaber"
+"Bug Tracker" = "https://github.com/wmyfelix/PySaber/issues"
+
+[project.scripts]
+saberio = "pysaber.saberio:main"
+
+[tool.setuptools.packages.find]
+where = ["pysaber"] 
