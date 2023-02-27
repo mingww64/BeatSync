@@ -4,3 +4,4 @@ pysaber/utils/__pycache__
 .cache
 dist/
 pysaber/saberio_rewind.egg-info
+pysaber/utils/config.json
