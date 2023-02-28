@@ -88,7 +88,7 @@ def retrieve_params(args):
                 paint("> [#green]Spotify[/] playlist link: ")
             )
         elif path.exists(m): args.file = m
-        else: args.song = m
+        else: args.song = [m]
     if not (args.auto or args.list or args.test or args.cookie):
         while (
             choice := input(
