@@ -82,6 +82,8 @@ def get_spotify_songs(playlist_link):
 
 def retrieve_params(args):
     spotify_playlist_link = None
+    if (args.o or args.b) and not args.cookie:
+        get_cookie(args)
     if not args.file and not args.song and not args.spotify:
         if (m := input(paint("[#cyan]Type[/] the song or the playlist path right here. [#cyan]Or Press[/] [#green]ENTER[/] to enter spotify playlist link. ❯ "))) == '':
             spotify_playlist_link = input(
@@ -89,7 +91,7 @@ def retrieve_params(args):
             )
         elif path.exists(m): args.file = m
         else: args.song = [m]
-    if not (args.auto or args.list or args.test or args.cookie):
+    if not (args.auto or args.list or args.test):
         while (
             choice := input(
                 paint("> Choose mode: [[#red]auto[/]|[#green]list[/]|[#magenta]test[/][#yellow]|[/][#red][auto][/] [#blue]bookmark[/] [#cyan][and download][/]]. ❯ ")
@@ -98,12 +100,9 @@ def retrieve_params(args):
                                                    "bookmark and download", 
                                                    "auto bookmark and download")):
             pass
-        if choice in b and not args.cookie:
-            if type(get_config().get("cookie")) != str: 
-                args.cookie = strict_input(paint("Cookie from [#blue]B[/]saber.com\n ❯ "), wrong_text='', flush= True)
-                save_config(cookie=args.cookie)
-            else:
-                args.cookie = get_config()['cookie']
+
+        if choice in b:
+            get_cookie(args)
         args.auto = args.b = (choice == "auto" 
                      or choice == "auto bookmark" 
                      or choice == "auto bookmark and download" 
@@ -115,3 +114,10 @@ def retrieve_params(args):
         playlist_name = args.p = input(paint("> Choose a name for the playlist. (songs)❯ "))
     else: playlist_name = args.p
     return spotify_playlist_link, playlist_name
+
+def get_cookie(args):
+    if type(get_config().get("cookie")) != str: 
+        args.cookie = strict_input(paint("Cookie from [#blue]B[/]saber.com\n ❯ "), wrong_text='', flush= True)
+        save_config(cookie=args.cookie)
+    else:
+        args.cookie = get_config()['cookie']
