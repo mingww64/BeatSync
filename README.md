@@ -115,7 +115,7 @@ and
 
 ```
 
-## There can be many combos...
+## There can be many combos
 ```
 ❯ saberio  -h
 usage: PySaber [-h] [-p PLAYLIST] [-d PATH] [-s SONG | -f FILE | -y SPOTIFY] [-c COOKIE] [-b] [-o] [--auto | --list | --test] [--verbose]
@@ -144,7 +144,8 @@ Example: pysaber -f songs.txt -p BeastSaver --list
 
 ```
 
-### But if you feel a bit lost, you can always use the interactive mode just by pressing ENTERs!
+### But if you feel a bit lost, 
+you can always use the interactive mode just by pressing ENTERs!
 
 ```
 ❯ saberio
@@ -153,7 +154,7 @@ Type the song or the playlist path right here. Or Press ENTER to enter spotify p
 > Choose mode: [auto|list|test|[auto] bookmark [and download]]. ❯ 
 ```
 
-## In case you have no clue how to get cookie
+## In case you have no clue how to get the cookie
 
 Simply put: 
 1. Login to [bsaber.com](https://basaber.com/)
