@@ -82,14 +82,14 @@ def get_spotify_songs(playlist_link):
 
 def retrieve_params(args):
     spotify_playlist_link = None
-    if not args.file and not args.song:
+    if not args.file and not args.song and not args.spotify:
         if (m := input(paint("[#cyan]Type[/] the song or the playlist path right here. [#cyan]Or Press[/] [#green]ENTER[/] to enter spotify playlist link. ❯ "))) == '':
             spotify_playlist_link = input(
                 paint("> [#green]Spotify[/] playlist link: ")
             )
         elif path.exists(m): args.file = m
         else: args.song = m
-    if not (args.auto and args.list and args.test and args.c):
+    if not (args.auto or args.list or args.test or args.cookie):
         while (
             choice := input(
                 paint("> Choose mode: [[#red]auto[/]|[#green]list[/]|[#magenta]test[/][#yellow]|[/][#red][auto][/] [#blue]bookmark[/] [#cyan][and download][/]]. ❯ ")

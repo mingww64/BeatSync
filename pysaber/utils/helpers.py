@@ -31,9 +31,11 @@ def songs_table(songs):
     return tabulate(entries, headers=headers, tablefmt="fancy_grid", maxcolwidths=[None, None, 45])
 
 
-def look_for_code(song):
+def look_for_code_and_artist(song):
     if (m := search(r"(.*?)(\#\w+)?\s*$", song or "")) and m.group(2):
         return m.group(2)[1:], m.group(1).strip()
+    if (m := search(r"(.+)--(.+)$", song or "")) and m.group(2):
+        return None, (m.group(1), m.group(2))
     return None, song
 
 
