@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "saberio-rewind"
-version = "1.0.3-2"
+version = "1.0.3-3"
 authors = [
   { name="Moris Doratiotto", email="moris.doratiotto@gmail.com" },
   { name="Felicia Wen", email="i@feli.cf"},

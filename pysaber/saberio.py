@@ -11,10 +11,9 @@ from pysaber.utils.spotify import(retrieve_params, get_spotify_songs)
 
 def argparsing():
     parser = ArgumentParser(
-        prog="PySaber",
+        prog="saberio",
         description="Let's rock on Beat Saber.",
-        #usage=("pysaber [-f file] [-s song] [--auto|--list|--test] [-p playlist-name]"),
-        epilog="Example: pysaber -f songs.txt -p BeastSaver --list",
+        epilog="Example: saberio -f songs.txt -p BeastSaver --list",
     )
     parser.add_argument("-p", type=str, help="playlist name", metavar=("PLAYLIST"))
     parser.add_argument(
